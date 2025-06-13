@@ -4,6 +4,8 @@
 基础的，基于PyMuPDF4LLMLoader的实现。
 """
 
+from __future__ import annotations
+
 from langchain_pymupdf4llm import PyMuPDF4LLMLoader
 from langchain_community.document_loaders.parsers import RapidOCRBlobParser
 from langchain_community.document_loaders.parsers import LLMImageBlobParser
@@ -13,9 +15,10 @@ from langchain_core.rate_limiters import InMemoryRateLimiter
 from pathlib import Path
 import os
 
-from langchain_core.language_models import BaseChatModel
-from langchain_core.documents import Document
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
+if TYPE_CHECKING:
+    from langchain_core.language_models import BaseChatModel
+    from langchain_core.documents import Document
 
 
 class PymupdfTextLoader:

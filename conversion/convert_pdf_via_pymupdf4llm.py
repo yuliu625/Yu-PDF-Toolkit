@@ -1,12 +1,16 @@
 """
-Source:
+Sources:
     https://pymupdf.readthedocs.io/en/latest/pymupdf4llm/
 
 References:
     https://pypi.org/project/pymupdf4llm/
     https://pymupdf.readthedocs.io/en/latest/pymupdf4llm/api.html#pymupdf4llm-api
 
-通过PyMuPDFLLM转换pdf为markdown。
+Synopsis:
+    通过PyMuPDFLLM转换pdf为markdown。
+
+Notes:
+    官方的实现很不优雅，但是方法足够快捷。这些方法可以用于快速获取原型。
 """
 
 from __future__ import annotations

@@ -1,6 +1,6 @@
 """
 Sources:
-    https://pymupdf.readthedocs.io/en/latest/pymupdf4llm/
+    https://github.com/yuliu625/Yu-PDF-Toolkit/conversion/convert_pdf_via_pymupdf4llm.py
 
 References:
     https://pypi.org/project/pymupdf4llm/

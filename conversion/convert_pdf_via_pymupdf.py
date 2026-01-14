@@ -4,7 +4,6 @@ Sources:
 
 References:
     https://pymupdf.readthedocs.io/en/latest/about.html
-    https://pymupdf.readthedocs.io/en/latest/pymupdf4llm/api.html#pymupdf4llm-api
 
 Synopsis:
     通过PyMuPDF转换pdf为txt。

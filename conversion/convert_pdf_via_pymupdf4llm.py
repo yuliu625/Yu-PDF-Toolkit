@@ -34,6 +34,7 @@ def convert_pdf_via_pymupdf4llm(
     markdown_text = pymupdf4llm.to_markdown(
         str(pdf_path),
     )
+    logger.trace("Markdown Text: \n", markdown_text)
     # 保存。
     result_markdown_path.write_text(markdown_text, encoding='utf-8')
     logger.success(f"Save markdown to {result_markdown_path}")
@@ -56,6 +57,7 @@ def convert_pdf_via_pymupdf4llm_with_images(
         write_images=is_need_image,
         image_path=result_image_dir,
     )
+    logger.trace("Markdown Text: \n", markdown_text)
     # 保存。
     result_markdown_path.write_text(markdown_text, encoding='utf-8')
     logger.success(f"Save markdown to {result_markdown_path}")

@@ -42,3 +42,24 @@ def convert_pdf_via_pymupdf(
     result_txt_path.write_text("\n\n".join(all_text), encoding='utf-8')
     logger.success(f"Save txt to {result_txt_path}")
 
+
+def convert_pdf_via_pymupdf_with_ocr(
+    pdf_path: str | Path,
+    result_txt_path: str | Path,
+) -> None:
+    # 路径处理。
+    result_txt_path = Path(result_txt_path)
+    result_txt_path.parent.mkdir(parents=True, exist_ok=True)
+    # 打开。
+    doc = fitz.open(pdf_path)
+    all_text = []
+    # 遍历每一页。
+    for page in doc:
+        tp = page.get_textpage_ocr(flags=3)
+        page_text = tp.extractText()
+        all_text.append(page_text)
+        logger.trace(f"Page Text:\n", page_text)
+    # 保存
+    result_txt_path.write_text("\n\n".join(all_text), encoding='utf-8')
+    logger.success(f"Save txt to {result_txt_path}")
+

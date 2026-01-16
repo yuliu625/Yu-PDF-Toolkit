@@ -39,13 +39,28 @@ if TYPE_CHECKING:
     from docling.datamodel.pipeline_options import PipelineOptions
 
 
-def set_pdf_pipeline(
+def build_pdf_pipeline_options(
     is_do_table_structure: bool,
     is_calculate_linear_cells: bool,
     is_do_ocr: bool,
     images_scales: float,
     is_extract_images: bool,
 ) -> PdfPipelineOptions:
+    """
+    构建pdf pipeline设置的数据类。
+
+    该方法主要列出常用设置，具体情况可重构该方法或跳过该方法直接进行设置。
+
+    Args:
+        is_do_table_structure:
+        is_calculate_linear_cells:
+        is_do_ocr:
+        images_scales:
+        is_extract_images:
+
+    Returns:
+
+    """
     pipeline_options = PdfPipelineOptions()
     # 进行具体配置。
     ## 解析表格
@@ -64,11 +79,23 @@ def set_pdf_pipeline(
     return pipeline_options
 
 
+# ====主要方法。====
 def convert_pdf_via_docling(
     pdf_path: str | Path,
     result_markdown_path: str | Path,
     pipeline_options: PdfPipelineOptions,
 ) -> None:
+    """
+    设置并构建pipeline，执行转换。
+
+    Args:
+        pdf_path:
+        result_markdown_path:
+        pipeline_options:
+
+    Returns:
+
+    """
     # 处理路径。
     result_markdown_path = Path(result_markdown_path)
     result_markdown_path.parent.mkdir(parents=True, exist_ok=True)
@@ -76,7 +103,7 @@ def convert_pdf_via_docling(
     converter = DocumentConverter(
         format_options={
             InputFormat.PDF: PdfFormatOption(pipeline_options=pipeline_options),
-        }
+        },
     )
     # 执行转换。
     result = converter.convert(

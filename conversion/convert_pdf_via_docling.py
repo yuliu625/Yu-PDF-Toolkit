@@ -69,7 +69,7 @@ def convert_pdf_via_docling(
     result_markdown_path: str | Path,
     pipeline_options: PdfPipelineOptions,
 ) -> None:
-    # 处理路径
+    # 处理路径。
     result_markdown_path = Path(result_markdown_path)
     result_markdown_path.parent.mkdir(parents=True, exist_ok=True)
     # 构建转换器。
@@ -83,8 +83,52 @@ def convert_pdf_via_docling(
         source=pdf_path,
     )
     # 选择需要的导出类型。
+    ## HARDCODED: 这里默认导出为markdown。
     markdown_text = result.document.export_to_markdown()
     result_markdown_path.write_text(markdown_text, encoding='utf-8')
     logger.success(f"Save {result_markdown_path}")
 
+
+def batch_convert_pdf_via_docling(
+    pdf_paths: list[str | Path],
+    result_markdown_paths: list[str | Path],
+    pipeline_options: PdfPipelineOptions,
+) -> None:
+    """
+    批量转换pdf的方法。
+
+    docling需要加载模型，而分别多次加载会消耗大量资源，因此构建该方法。
+    注意，该方法包含大量约定，包括:
+        - 所有pdf在同一dir下。
+        - 所有结果会存储在同一dir下。
+    未来根据需要进行重构。
+
+    Args:
+        pdf_paths:
+        result_markdown_paths:
+        pipeline_options:
+
+    Returns:
+
+    """
+    # 处理路径。
+    ## HACK: 这里近通过第一个路径进行处理。
+    result_markdown_path_0 = Path(result_markdown_paths[0])
+    result_markdown_path_0.parent.mkdir(parents=True, exist_ok=True)
+    # 构建转换器。
+    converter = DocumentConverter(
+        format_options={
+            InputFormat.PDF: PdfFormatOption(pipeline_options=pipeline_options),
+        }
+    )
+    # 执行转换。
+    for _i, pdf_path in enumerate(pdf_paths):
+        result = converter.convert(
+            source=pdf_path,
+        )
+        # 选择需要的导出类型。
+        ## HARDCODED: 这里默认导出为markdown。
+        markdown_text = result.document.export_to_markdown()
+        result_markdown_paths[_i].write_text(markdown_text, encoding='utf-8')
+        logger.success(f"Save {result_markdown_paths[_i]}")
 

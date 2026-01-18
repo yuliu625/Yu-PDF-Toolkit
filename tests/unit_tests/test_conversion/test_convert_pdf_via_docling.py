@@ -19,8 +19,8 @@ from typing import TYPE_CHECKING
 class TestConvertPdfViaDocling:
     @pytest.mark.parametrize(
         'pdf_path, result_markdown_path', [
-        (r"",
-         r""),
+        (r"D:\dataset\smart\experimental_datasets\sample_1\000004.pdf",
+         r"D:\dataset\smart\tests\docling_1\000004.md"),
     ])
     def test_convert_pdf_via_docling(
         self,
@@ -29,9 +29,8 @@ class TestConvertPdfViaDocling:
     ):
         pipeline_options = build_pdf_pipeline_options(
             is_do_table_structure=True,
-            is_calculate_linear_cells=True,
             is_do_ocr=False,
-            images_scales=2.0,
+            images_scale=2.0,
             is_extract_images=False,
         )
         convert_pdf_via_docling(
@@ -42,8 +41,8 @@ class TestConvertPdfViaDocling:
 
     @pytest.mark.parametrize(
         'pdf_path, result_markdown_path', [
-        (r"",
-         r""),
+        (r"D:\dataset\smart\experimental_datasets\sample_1\000004.pdf",
+         r"D:\dataset\smart\tests\docling_2\000004.md"),
     ])
     def test_convert_pdf_via_docling_with_images(
         self,
@@ -52,9 +51,8 @@ class TestConvertPdfViaDocling:
     ):
         pipeline_options = build_pdf_pipeline_options(
             is_do_table_structure=True,
-            is_calculate_linear_cells=True,
             is_do_ocr=False,
-            images_scales=2.0,
+            images_scale=2.0,
             is_extract_images=True,
         )
         convert_pdf_via_docling(

@@ -18,8 +18,8 @@ from typing import TYPE_CHECKING
 class TestConvertPDFViaPymupdf4llm:
     @pytest.mark.parametrize(
         'pdf_path, result_markdown_path', [
-        (r"",
-         r""),
+        (r"D:\dataset\smart\experimental_datasets\sample_1\000004.pdf",
+         r"D:\dataset\smart\tests\pymupdf_1\000004.md"),
     ])
     def test_convert_pdf_via_pymupdf4llm(
         self,
@@ -33,10 +33,10 @@ class TestConvertPDFViaPymupdf4llm:
 
     @pytest.mark.parametrize(
         'pdf_path, result_markdown_path, is_need_images, result_image_dir', [
-        (r"",
-         r"",
+        (r"D:\dataset\smart\experimental_datasets\sample_1\000004.pdf",
+         r"D:\dataset\smart\tests\pymupdf_2\000004.md",
          True,
-         r"",),
+         r"D:\dataset\smart\tests\pymupdf_2\000004",),
     ])
     def test_convert_pdf_via_pymupdf4llm_with_images(
         self,

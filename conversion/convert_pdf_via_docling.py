@@ -16,6 +16,7 @@ Notes:
 
     注意:
         - PipelineOptions是多层极其复杂的配置数据类。
+        - docling的options相关的具有频繁更新，使用前需要进行测试。
 """
 
 from __future__ import annotations
@@ -41,9 +42,9 @@ if TYPE_CHECKING:
 
 def build_pdf_pipeline_options(
     is_do_table_structure: bool,
-    is_calculate_linear_cells: bool,
+    # is_calculate_linear_cells: bool,
     is_do_ocr: bool,
-    images_scales: float,
+    images_scale: float,
     is_extract_images: bool,
 ) -> PdfPipelineOptions:
     """
@@ -53,9 +54,8 @@ def build_pdf_pipeline_options(
 
     Args:
         is_do_table_structure:
-        is_calculate_linear_cells:
         is_do_ocr:
-        images_scales:
+        images_scale:
         is_extract_images:
 
     Returns:
@@ -66,15 +66,15 @@ def build_pdf_pipeline_options(
     ## 解析表格
     pipeline_options.do_table_structure = is_do_table_structure
     ## 计算网格。
-    pipeline_options.calculate_linear_cells = is_calculate_linear_cells
+    # pipeline_options.calculate_linear_cells = is_calculate_linear_cells
     ## 执行OCR。
-    pipeline_options.ocr = is_do_ocr
+    pipeline_options.do_ocr = is_do_ocr
     # 如果执行OCR，需要配置具体OCR。
     if is_do_ocr:
         # 这里进行硬编码，后续根据需求更新。
         pipeline_options.ocr_options = TesseractOcrOptions()
     ## 提取图像。
-    pipeline_options.images_scales = images_scales
+    pipeline_options.images_scale = images_scale
     pipeline_options.generate_picture_images = is_extract_images
     return pipeline_options
 

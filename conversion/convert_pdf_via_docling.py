@@ -33,6 +33,7 @@ from docling.document_converter import (
     DocumentConverter,
     PdfFormatOption,
 )
+
 from pathlib import Path
 
 from typing import TYPE_CHECKING
@@ -89,12 +90,12 @@ def convert_pdf_via_docling(
     设置并构建pipeline，执行转换。
 
     Args:
-        pdf_path:
-        result_markdown_path:
-        pipeline_options:
+        pdf_path (Union[str, Path]): 目标 pdf 的路径。
+        result_markdown_path (Union[str, Path]): 结果 markdown 的路径。
+        pipeline_options (PdfPipelineOptions): pipeline 的设置数据类。
 
     Returns:
-
+        None: 执行转换。
     """
     # 处理路径。
     result_markdown_path = Path(result_markdown_path)
@@ -131,12 +132,12 @@ def batch_convert_pdf_via_docling(
     未来根据需要进行重构。
 
     Args:
-        pdf_paths:
-        result_markdown_paths:
-        pipeline_options:
+        pdf_paths (list[Union[str, Path]]): 目标 pdf 的路径。
+        result_markdown_paths (list[Union[str, Path]]): 结果 markdown 的路径。
+        pipeline_options (PdfPipelineOptions): pipeline 的设置数据类。
 
     Returns:
-
+        None: 执行批量转换。
     """
     # 处理路径。
     ## HACK: 这里近通过第一个路径进行处理。

@@ -1,12 +1,12 @@
 """
 Sources:
-    https://github.com/yuliu625/Yu-PDF-Toolkit/conversion/convert_pdf_via_deepseek_ocr.py
+    https://github.com/yuliu625/Yu-PDF-Toolkit/conversion/convert_pdf_via_deepseek_ocr_cli.py
 
 References:
-
+    https://pypi.org/project/deepseek-ocr-cli/
 
 Synopsis:
-    通过DeepSeek-OCR转换pdf为markdown。
+    通过 deepseek-ocr-cli 转换pdf为markdown。
 
 Notes:
     利用deepseek-ocr-cli来处理pdf转换。

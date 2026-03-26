@@ -4,15 +4,13 @@
 
 from __future__ import annotations
 import pytest
-from loguru import logger
 
-from conversion.convert_pdf_via_docling import (
+from extraction.markdown.convert_pdf_via_docling import (
     build_pdf_pipeline_options,
     convert_pdf_via_docling,
-    batch_convert_pdf_via_docling,
 )
 
-from typing import TYPE_CHECKING
+
 # if TYPE_CHECKING:
 
 

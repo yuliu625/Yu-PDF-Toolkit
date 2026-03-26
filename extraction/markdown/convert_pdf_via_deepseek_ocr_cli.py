@@ -1,6 +1,6 @@
 """
 Sources:
-    https://github.com/yuliu625/Yu-PDF-Toolkit/conversion/convert_pdf_via_deepseek_ocr_cli.py
+    https://github.com/yuliu625/Yu-PDF-Toolkit/extraction/markdown/convert_pdf_via_deepseek_ocr_cli.py
 
 References:
     https://pypi.org/project/deepseek-ocr-cli/

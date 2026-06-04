@@ -4,14 +4,13 @@
 
 from __future__ import annotations
 import pytest
-from loguru import logger
 
-from conversion.convert_pdf_via_pymupdf4llm import (
+from modules.conversion.convert_pdf_via_pymupdf4llm import (
     convert_pdf_via_pymupdf4llm,
     convert_pdf_via_pymupdf4llm_with_images,
 )
 
-from typing import TYPE_CHECKING
+
 # if TYPE_CHECKING:
 
 

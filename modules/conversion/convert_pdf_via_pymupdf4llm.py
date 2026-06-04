@@ -1,13 +1,13 @@
 """
 Sources:
-    https://github.com/yuliu625/Yu-PDF-Toolkit/conversion/convert_pdf_via_pymupdf4llm.py
+    https://github.com/yuliu625/Yu-PDF-Toolkit/blob/main/modules/conversion/convert_pdf_via_pymupdf4llm.py
 
 References:
-    https://pypi.org/project/pymupdf4llm/
-    https://pymupdf.readthedocs.io/en/latest/pymupdf4llm/api.html#pymupdf4llm-api
+    - https://pypi.org/project/pymupdf4llm/
+    - https://pymupdf.readthedocs.io/en/latest/pymupdf4llm/api.html#pymupdf4llm-api
 
 Synopsis:
-    通过pymupdf4llm转换pdf为markdown。
+    通过 pymupdf4llm 转换 pdf 为 markdown 。
 
 Notes:
     官方的实现很不优雅，但是方法足够快捷。这些方法可以用于快速获取原型。

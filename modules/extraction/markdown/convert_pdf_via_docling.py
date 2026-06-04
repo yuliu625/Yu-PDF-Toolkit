@@ -1,22 +1,22 @@
 """
 Sources:
-    https://github.com/yuliu625/Yu-PDF-Toolkit/extraction/markdown/convert_pdf_via_docling.py
+    https://github.com/yuliu625/Yu-PDF-Toolkit/blob/main/modules/extraction/markdown/convert_pdf_via_docling.py
 
 References:
     https://www.docling.ai/
 
 Synopsis:
-    通过docling转换pdf为markdown。
+    通过 docling 转换 pdf 为 markdown 。
 
 Notes:
-    docling官方文档写的不是很好，该实现后续或许需要修改和更新。
+    docling 官方文档写的不是很好，该实现后续或许需要修改和更新。
 
-    docling完全按照OOP设计，需要理解设计的模型才能进行。
-    docling2.x有破坏性API更新，需要进行修改。
+    docling 完全按照 OOP 设计，需要理解设计的模型才能进行。
+    docling2.x 有破坏性 API 更新，需要进行修改。
 
     注意:
-        - PipelineOptions是多层极其复杂的配置数据类。
-        - docling的options相关的具有频繁更新，使用前需要进行测试。
+        - PipelineOptions 是多层极其复杂的配置数据类。
+        - docling 的 options 相关的具有频繁更新，使用前需要进行测试。
 """
 
 from __future__ import annotations
@@ -49,7 +49,7 @@ def build_pdf_pipeline_options(
     is_extract_images: bool,
 ) -> PdfPipelineOptions:
     """
-    构建pdf pipeline设置的数据类。
+    构建 pdf pipeline 设置的数据类。
 
     该方法主要列出常用设置，具体情况可重构该方法或跳过该方法直接进行设置。
 
@@ -68,9 +68,9 @@ def build_pdf_pipeline_options(
     pipeline_options.do_table_structure = is_do_table_structure
     ## 计算网格。
     # pipeline_options.calculate_linear_cells = is_calculate_linear_cells
-    ## 执行OCR。
+    ## 执行 OCR 。
     pipeline_options.do_ocr = is_do_ocr
-    # 如果执行OCR，需要配置具体OCR。
+    # 如果执行 OCR ，需要配置具体 OCR 。
     if is_do_ocr:
         # 这里进行硬编码，后续根据需求更新。
         pipeline_options.ocr_options = TesseractOcrOptions()
@@ -87,7 +87,7 @@ def convert_pdf_via_docling(
     pipeline_options: PdfPipelineOptions,
 ) -> None:
     """
-    设置并构建pipeline，执行转换。
+    设置并构建 pipeline ，执行转换。
 
     Args:
         pdf_path (Union[str, Path]): 目标 pdf 的路径。
@@ -111,7 +111,7 @@ def convert_pdf_via_docling(
         source=pdf_path,
     )
     # 选择需要的导出类型。
-    ## HARDCODED: 这里默认导出为markdown。
+    ## HARDCODED: 这里默认导出为 markdown 。
     markdown_text = result.document.export_to_markdown()
     result_markdown_path.write_text(markdown_text, encoding='utf-8')
     logger.success(f"Save {result_markdown_path}")
@@ -123,12 +123,12 @@ def batch_convert_pdf_via_docling(
     pipeline_options: PdfPipelineOptions,
 ) -> None:
     """
-    批量转换pdf的方法。
+    批量转换 pdf 的方法。
 
-    docling需要加载模型，而分别多次加载会消耗大量资源，因此构建该方法。
+    docling 需要加载模型，而分别多次加载会消耗大量资源，因此构建该方法。
     注意，该方法包含大量约定，包括:
-        - 所有pdf在同一dir下。
-        - 所有结果会存储在同一dir下。
+        - 所有 pdf 在同一 dir 下。
+        - 所有结果会存储在同一 dir 下。
     未来根据需要进行重构。
 
     Args:
@@ -155,7 +155,7 @@ def batch_convert_pdf_via_docling(
             source=pdf_path,
         )
         # 选择需要的导出类型。
-        ## HARDCODED: 这里默认导出为markdown。
+        ## HARDCODED: 这里默认导出为 markdown 。
         markdown_text = result.document.export_to_markdown()
         result_markdown_paths[_i].write_text(markdown_text, encoding='utf-8')
         logger.success(f"Save {result_markdown_paths[_i]}")

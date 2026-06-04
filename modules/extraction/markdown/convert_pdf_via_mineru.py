@@ -1,12 +1,12 @@
 """
 Sources:
-    https://github.com/yuliu625/Yu-PDF-Toolkit/extraction/markdown/convert_pdf_via_mineru.py
+    https://github.com/yuliu625/Yu-PDF-Toolkit/blob/main/modules/extraction/markdown/convert_pdf_via_mineru.py
 
 References:
 
 
 Synopsis:
-    通过MinerU转换pdf为markdown。
+    通过 MinerU 转换 pdf 为 markdown 。
 
 Notes:
 

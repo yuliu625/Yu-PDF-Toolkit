@@ -1,21 +1,21 @@
 """
 Sources:
-    https://github.com/yuliu625/Yu-PDF-Toolkit/extraction/markdown/convert_pdf_via_deepseek_ocr_cli.py
+    https://github.com/yuliu625/Yu-PDF-Toolkit/blob/main/modules/extraction/markdown/convert_pdf_via_deepseek_ocr_cli.py
 
 References:
     https://pypi.org/project/deepseek-ocr-cli/
 
 Synopsis:
-    通过 deepseek-ocr-cli 转换pdf为markdown。
+    通过 deepseek-ocr-cli 转换 pdf 为 markdown 。
 
 Notes:
-    利用deepseek-ocr-cli来处理pdf转换。
+    利用 deepseek-ocr-cli 来处理 pdf 转换。
 
-    由于deepseek-ocr官方仓库写得过于过程化和非结构化，并没有提供批量处理方法。
-    同时，我也懒得去构造pipeline和批处理方法。
-    这里，我查找社区中以及构造的工具deepseek-ocr-cli。
-    该工具基于ollama实现，但源代码处于能跑就行的状态。
-    社区中还有基于vllm和transformers的支持，但仍处于较大变动状态。
+    由于 deepseek-ocr 官方仓库写得过于过程化和非结构化，并没有提供批量处理方法。
+    同时，我也懒得去构造 pipeline 和批处理方法。
+    这里，我查找社区中以及构造的工具 deepseek-ocr-cli 。
+    该工具基于 ollama 实现，但源代码处于能跑就行的状态。
+    社区中还有基于 vllm 和 transformers 的支持，但仍处于较大变动状态。
 """
 
 from __future__ import annotations
@@ -40,12 +40,12 @@ def convert_pdf_via_deepseek_ocr(
     # 处理方法设置。
     processor = OCRProcessor(
         model_manager=model_manager,
-        output_dir=None,  # 不需要图片的情况下，通过save_result方法指定保存路径。
+        output_dir=None,  # 不需要图片的情况下，通过 save_result 方法指定保存路径。
         extract_images=False,  # 不提取图片。
         include_metadata=False,  # 不添加该工具的默认信息。
         # HARDCODED
         dpi=200,
-        workers=1,  # 该工具提供的多进程并不能加速，相反在不稳定的情况下会堵塞ollama。
+        workers=1,  # 该工具提供的多进程并不能加速，相反在不稳定的情况下会堵塞 ollama 。
         analyze_figures=True,
     )
     # 执行处理。
@@ -80,7 +80,7 @@ def convert_pdf_via_deepseek_ocr_with_images(
         include_metadata=False,  # 不添加该工具的默认信息。
         # HARDCODED
         dpi=200,
-        workers=1,  # 该工具提供的多进程并不能加速，相反在不稳定的情况下会堵塞ollama。
+        workers=1,  # 该工具提供的多进程并不能加速，相反在不稳定的情况下会阻塞 ollama 。
         analyze_figures=True,
     )
     # 执行处理。

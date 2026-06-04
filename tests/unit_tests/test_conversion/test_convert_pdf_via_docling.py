@@ -5,7 +5,7 @@
 from __future__ import annotations
 import pytest
 
-from extraction.markdown.convert_pdf_via_docling import (
+from modules.extraction.markdown import (
     build_pdf_pipeline_options,
     convert_pdf_via_docling,
 )

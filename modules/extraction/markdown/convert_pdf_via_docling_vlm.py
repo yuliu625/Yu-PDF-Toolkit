@@ -1,6 +1,6 @@
 """
 Sources:
-    https://github.com/yuliu625/Yu-PDF-Toolkit/extraction/markdown/convert_pdf_via_docling_vlm.py
+    https://github.com/yuliu625/Yu-PDF-Toolkit/blob/main/modules/extraction/markdown/convert_pdf_via_docling_vlm.py
 
 References:
     https://www.docling.ai/
@@ -16,8 +16,6 @@ Notes:
 """
 
 from __future__ import annotations
-
-from docling.datamodel import pipeline_options
 from loguru import logger
 
 from docling.datamodel.base_models import InputFormat

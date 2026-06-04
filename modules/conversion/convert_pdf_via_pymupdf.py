@@ -1,15 +1,15 @@
 """
 Sources:
-    https://github.com/yuliu625/Yu-PDF-Toolkit/conversion/convert_pdf_via_pymupdf.py
+    https://github.com/yuliu625/Yu-PDF-Toolkit/blob/main/modules/conversion/convert_pdf_via_pymupdf.py
 
 References:
     https://pymupdf.readthedocs.io/en/latest/about.html
 
 Synopsis:
-    通过PyMuPDF转换pdf为txt。
+    通过 PyMuPDF 转换 pdf 为 txt 。
 
 Notes:
-    底层的pdf处理方法。简单使用，不是markdown格式。
+    底层的 pdf 处理方法。简单使用，不是 markdown 格式。
 """
 
 from __future__ import annotations

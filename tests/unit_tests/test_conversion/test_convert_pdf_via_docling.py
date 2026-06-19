@@ -1,11 +1,11 @@
 """
-测试docling相关的工具。
+测试 docling 相关的工具。
 """
 
 from __future__ import annotations
 import pytest
 
-from modules.extraction.markdown import (
+from src.extraction.markdown import (
     build_pdf_pipeline_options,
     convert_pdf_via_docling,
 )

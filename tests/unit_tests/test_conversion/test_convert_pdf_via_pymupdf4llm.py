@@ -1,11 +1,11 @@
 """
-测试pymupdf4llm相关的工具。
+测试 pymupdf4llm 相关的工具。
 """
 
 from __future__ import annotations
 import pytest
 
-from modules.conversion.convert_pdf_via_pymupdf4llm import (
+from src.conversion.convert_pdf_via_pymupdf4llm import (
     convert_pdf_via_pymupdf4llm,
     convert_pdf_via_pymupdf4llm_with_images,
 )

@@ -1,6 +1,6 @@
 """
 Sources:
-    https://github.com/yuliu625/Yu-PDF-Toolkit/blob/main/modules/editing/extract_pages.py
+    https://github.com/yuliu625/Yu-PDF-Toolkit/blob/main/src/editing/extract_pages.py
 
 References:
     https://pymupdf.readthedocs.io/en/latest/the-basics.html

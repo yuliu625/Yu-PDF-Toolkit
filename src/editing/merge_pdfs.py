@@ -1,6 +1,6 @@
 """
 Sources:
-    https://github.com/yuliu625/Yu-PDF-Toolkit/blob/main/modules/editing/merge_pdfs.py
+    https://github.com/yuliu625/Yu-PDF-Toolkit/blob/main/src/editing/merge_pdfs.py
 
 References:
     https://pymupdf.readthedocs.io/en/latest/the-basics.html

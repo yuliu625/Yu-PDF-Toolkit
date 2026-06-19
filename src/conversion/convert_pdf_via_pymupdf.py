@@ -1,6 +1,6 @@
 """
 Sources:
-    https://github.com/yuliu625/Yu-PDF-Toolkit/blob/main/modules/conversion/convert_pdf_via_pymupdf.py
+    https://github.com/yuliu625/Yu-PDF-Toolkit/blob/main/src/conversion/convert_pdf_via_pymupdf.py
 
 References:
     https://pymupdf.readthedocs.io/en/latest/about.html

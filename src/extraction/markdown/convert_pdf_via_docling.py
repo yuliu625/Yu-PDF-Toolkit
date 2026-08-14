@@ -157,6 +157,6 @@ def batch_convert_pdf_via_docling(
         # 选择需要的导出类型。
         ## HARDCODED: 这里默认导出为 markdown 。
         markdown_text = result.document.export_to_markdown()
-        result_markdown_paths[_i].write_text(markdown_text, encoding='utf-8')
+        Path(result_markdown_paths[_i]).write_text(markdown_text, encoding='utf-8')
         logger.success(f"Save {result_markdown_paths[_i]}")
 

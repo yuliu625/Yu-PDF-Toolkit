@@ -35,7 +35,8 @@ from docling.pipeline.vlm_pipeline import VlmPipeline
 from pathlib import Path
 
 from typing import TYPE_CHECKING
-# if TYPE_CHECKING:
+if TYPE_CHECKING:
+    from docling.datamodel.pipeline_options import PipelineOptions
 
 
 def build_with_vlm_pipeline(
@@ -66,7 +67,9 @@ def build_with_vlm_pipeline(
     return pipeline_options
 
 
-def convert_pdf_via_docling_vlm():
+def convert_pdf_via_docling_vlm(
+    pipeline_options: PipelineOptions,
+):
     converter = DocumentConverter(
         format_options={
             InputFormat.PDF: PdfFormatOption(
